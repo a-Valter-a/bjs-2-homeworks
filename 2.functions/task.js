@@ -9,9 +9,9 @@ function getArrayParams(...arr) {
   return { min: min, max: max, avg: avg };
 }
 
-getArrayParams(-99, 99, 10)
-getArrayParams(1, 2, 3, -100, 10)
-getArrayParams(5)
+console.log(getArrayParams(-99, 99, 10))
+console.log(getArrayParams(1, 2, 3, -100, 10))
+console.log(getArrayParams(5))
 
 
 function summElementsWorker(...arr) {
@@ -57,6 +57,7 @@ function averageEvenElementsWorker(...arr) {
       countEvenElement += 1
     }
   }
+  return sumEvenElement / countEvenElement
 }
 
 console.log(averageEvenElementsWorker(1, 2, 3, 4, 5, 6, 7, 8, 9))
@@ -67,14 +68,14 @@ function makeWork (arrOfArr, func) {
 
   for(let i = 0; i < arrOfArr.length; i++) {
     const result = func(...arrOfArr[i])
-  }  
-  if (result > maxWorkerResult) {
+    if (result > maxWorkerResult) {
     maxWorkerResult = result
-  }
+    }
+  }   
   return maxWorkerResult
 }
 
-console.log(makeWork(arr, summElementsWorker)); 
-console.log(makeWork(arr, differenceMaxMinWorker)); 
-console.log(makeWork(arr, differenceEvenOddWorker)); 
-console.log(makeWork(arr, averageEvenElementsWorker)); 
+console.log(makeWork([[10, 10, 11, 20, 10], [67, 10, 2, 39, 88], [72, 75, 51, 87, 43], [30, 41, 55, 96, 62]], summElementsWorker)); 
+console.log(makeWork([[10, 10, 11, 20, 10], [67, 10, 2, 39, 88], [72, 75, 51, 87, 43], [30, 41, 55, 96, 62]], differenceMaxMinWorker)); 
+console.log(makeWork([[10, 10, 11, 20, 10], [67, 10, 2, 39, 88], [72, 75, 51, 87, 43], [30, 41, 55, 96, 62]], differenceEvenOddWorker)); 
+console.log(makeWork([[10, 10, 11, 20, 10], [67, 10, 2, 39, 88], [72, 75, 51, 87, 43], [30, 41, 55, 96, 62]], averageEvenElementsWorker)); 
