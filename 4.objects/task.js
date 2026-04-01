@@ -8,7 +8,7 @@ function Student(name, gender, age) {
   this.age = age;
   this.marks = [];
 }
-console.log(student1);
+
 
 
 
